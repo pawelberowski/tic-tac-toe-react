@@ -3,21 +3,36 @@ import { Tile } from '../Tile/Tile.jsx';
 import styles from './board.module.css';
 
 export const Board = () => {
+  const [isNowCircle, setIsNowCircle] = useState(true);
+
   const [tiles, setTiles] = useState([
-    '',
-    'circle',
-    '',
-    '',
-    '',
-    'cross',
-    '',
-    '',
-    '',
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
   ]);
+
+  const changeShape = (shape, index) => {
+    const newTiles = [...tiles];
+    newTiles[index] = shape;
+    setTiles(newTiles);
+  };
+
   return (
     <div className={styles.board}>
-      {tiles.map((tile) => (
-        <Tile shape={tile} />
+      {tiles.map((tile, index) => (
+        <Tile
+          shape={tile}
+          changeShape={changeShape}
+          index={index}
+          isNowCircle={isNowCircle}
+          setIsNowCircle={setIsNowCircle}
+        />
       ))}
     </div>
   );
