@@ -1,7 +1,5 @@
-import {Board} from "./Board.jsx";
+import { Board } from './Board.jsx';
 
 export const GameScreen = () => {
-    return (
-        <Board></Board>
-    )
-}
+  return <Board></Board>;
+};

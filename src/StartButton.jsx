@@ -1,5 +1,3 @@
 export const StartButton = ({ onClick }) => {
-    return (
-        <button onClick={onClick}>Start</button>
-    )
-}
+  return <button onClick={onClick}>Start</button>;
+};
