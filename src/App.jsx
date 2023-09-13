@@ -1,15 +1,26 @@
 import { useState } from 'react';
-import { PlayerNameInput } from './PlayerNameInput.jsx';
-import { StartButton } from './StartButton.jsx';
+import { PlayerNameInput } from './PlayerNameInput';
+import { StartButton } from './StartButton';
 import styles from './startScreen.module.css';
-import { Tile } from './Tile.jsx';
+import { Tile } from './Tile/Tile.jsx';
+
 export const App = () => {
   const [circlePlayerName, setCirclePlayerName] = useState('');
   const [crossPlayerName, setCrossPlayerName] = useState('');
 
   const [show, setShow] = useState(true);
 
-  const [tiles, setTiles] = useState(['', '', '', '', '', '', '', '', '']);
+  const [tiles, setTiles] = useState([
+    '',
+    'circle',
+    '',
+    '',
+    '',
+    'cross',
+    '',
+    '',
+    '',
+  ]);
 
   const [currentShape, setCurrentShape] = useState('circle');
 
@@ -45,16 +56,8 @@ export const App = () => {
 
       {!show ? (
         <div className="board">
-          {tiles.map((tile, index) => (
-            <Tile
-              key={index}
-              id={index}
-              tile={tile}
-              tiles={tiles}
-              setTiles={setTiles}
-              currentShape={currentShape}
-              setCurrentShape={setCurrentShape}
-            />
+          {tiles.map((tile) => (
+            <Tile shape={tile} />
           ))}
         </div>
       ) : null}

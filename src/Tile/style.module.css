@@ -1,0 +1,19 @@
+.tile {
+  width: 100px;
+  height: 100px;
+  border: solid 2px black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+}
+
+.circle {
+  background-image: url('../assets/circle.svg');
+}
+
+.cross {
+  background-image: url('../assets/cross.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+}
