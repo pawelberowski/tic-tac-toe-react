@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { PlayerNameInput } from './PlayerNameInput';
 import { StartButton } from './StartButton';
 import styles from './startScreen.module.css';
-import { Board } from './Board/Board.jsx';
+import { GameScreen } from './GameScreen/GameScreen.jsx';
 
 export const App = () => {
   const [circlePlayerName, setCirclePlayerName] = useState('');
@@ -38,7 +38,7 @@ export const App = () => {
         </div>
       ) : null}
 
-      {!show ? <Board /> : null}
+      {!show ? <GameScreen /> : null}
     </div>
   );
 };

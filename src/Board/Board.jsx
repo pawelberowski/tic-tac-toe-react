@@ -6,20 +6,47 @@ export const Board = () => {
   const [isNowCircle, setIsNowCircle] = useState(true);
 
   const [tiles, setTiles] = useState([
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
+    {
+      id: 0,
+      value: null,
+    },
+    {
+      id: 1,
+      value: null,
+    },
+    {
+      id: 2,
+      value: null,
+    },
+    {
+      id: 3,
+      value: null,
+    },
+    {
+      id: 4,
+      value: null,
+    },
+    {
+      id: 5,
+      value: null,
+    },
+    {
+      id: 6,
+      value: null,
+    },
+    {
+      id: 7,
+      value: null,
+    },
+    {
+      id: 8,
+      value: null,
+    },
   ]);
 
   const changeShape = (shape, index) => {
     const newTiles = [...tiles];
-    newTiles[index] = shape;
+    newTiles[index].value = shape;
     setTiles(newTiles);
   };
 
@@ -27,7 +54,8 @@ export const Board = () => {
     <div className={styles.board}>
       {tiles.map((tile, index) => (
         <Tile
-          shape={tile}
+          key={tile.id}
+          shape={tile.value}
           changeShape={changeShape}
           index={index}
           isNowCircle={isNowCircle}

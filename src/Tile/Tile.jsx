@@ -19,10 +19,8 @@ export const Tile = ({
     changeShape('cross', index);
     setIsNowCircle(true);
   };
+
   return (
-    <div
-      className={`${styles.tile} ${styles[shape]}`}
-      onClick={handleClick}
-    />
+    <div className={`${styles.tile} ${styles[shape]}`} onClick={handleClick} />
   );
 };
