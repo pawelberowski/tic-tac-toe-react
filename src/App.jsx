@@ -3,6 +3,7 @@ import { PlayerNameInput } from './PlayerNameInput';
 import { StartButton } from './StartButton';
 import styles from './startScreen.module.css';
 import { Tile } from './Tile/Tile.jsx';
+import { Board } from './Board/Board.jsx';
 
 export const App = () => {
   const [circlePlayerName, setCirclePlayerName] = useState('');
@@ -54,13 +55,7 @@ export const App = () => {
         </div>
       ) : null}
 
-      {!show ? (
-        <div className="board">
-          {tiles.map((tile) => (
-            <Tile shape={tile} />
-          ))}
-        </div>
-      ) : null}
+      {!show ? <Board /> : null}
     </div>
   );
 };
