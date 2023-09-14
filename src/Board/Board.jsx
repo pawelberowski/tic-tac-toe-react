@@ -53,6 +53,7 @@ export const Board = ({ circlePlayerName, crossPlayerName }) => {
   return (
     <div className={styles.game}>
       <TurnDisplay
+        className={styles.turnDisplay}
         circlePlayerName={circlePlayerName}
         crossPlayerName={crossPlayerName}
         isNowCircle={isNowCircle}

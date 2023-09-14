@@ -6,6 +6,14 @@
   place-items: center;
 }
 
+.turnDisplay {
+  height: 30px;
+  margin: 30px;
+  align-self: flex-start;
+  font-family: 'Arial Black', serif;
+  font-size: xx-large;
+}
+
 .board {
   width: 302px;
   height: 302px;

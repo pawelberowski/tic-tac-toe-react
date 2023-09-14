@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { PlayerNameInput } from './PlayerNameInput';
 import { StartButton } from './StartButton';
 import { Board } from './Board/Board.jsx';
-import styles from './styles.css';
+import './styles.css';
 
 export const App = () => {
   const [circlePlayerName, setCirclePlayerName] = useState('');
@@ -25,7 +25,7 @@ export const App = () => {
   return (
     <div>
       {show ? (
-        <div className={styles.startScreen}>
+        <div className={'startScreen'}>
           <PlayerNameInput
             shape="circle"
             onChange={handleCirclePlayerInputChange}

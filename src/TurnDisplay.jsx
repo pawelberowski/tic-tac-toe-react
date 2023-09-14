@@ -1,4 +1,5 @@
 export const TurnDisplay = ({
+  className,
   circlePlayerName,
   crossPlayerName,
   isNowCircle,
@@ -10,5 +11,5 @@ export const TurnDisplay = ({
     return crossPlayerName;
   };
 
-  return <p>{`It's now ${currentPlayer()}'s turn`}</p>;
+  return <p className={className}>{`It's now ${currentPlayer()}'s turn`}</p>;
 };
