@@ -3,6 +3,7 @@ import styles from './style.module.css';
 export const Tile = ({
   shape,
   changeShape,
+  checkScore,
   index,
   isNowCircle,
   setIsNowCircle,
@@ -13,6 +14,7 @@ export const Tile = ({
     }
     if (isNowCircle) {
       changeShape('circle', index);
+      checkScore();
       setIsNowCircle(false);
       return;
     }

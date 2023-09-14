@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Tile } from '../Tile/Tile.jsx';
 import styles from './board.module.css';
 import { TurnDisplay } from '../TurnDisplay.jsx';
+
 export const Board = ({ circlePlayerName, crossPlayerName }) => {
   const [isNowCircle, setIsNowCircle] = useState(true);
 
@@ -50,6 +51,37 @@ export const Board = ({ circlePlayerName, crossPlayerName }) => {
     setTiles(newTiles);
   };
 
+  const winingCombos = [
+    [0,1,2],
+    [0,3,6],
+    [0,4,8],
+    [1,4,7],
+    [2,5,8],
+    [2,4,6],
+    [3,4,5],
+    [6,7,8]
+  ];
+
+  const [winner, setWinner] = useState(null)
+
+  const checkScore = () => {
+    winingCombos.forEach(function (array) {
+      const circleWins = array.every(function (number) {
+        return tiles[number].value === 'circle';
+      })
+      const crossWins = array.every(function (number) {
+        return tiles[number].value === 'cross';
+      })
+      if (circleWins) {
+        setWinner('Circle Wins!');
+      }
+      if (crossWins) {
+        setWinner('Cross Wins!');
+      }
+    })
+
+  }
+
   return (
     <div className={styles.game}>
       <TurnDisplay
@@ -64,12 +96,14 @@ export const Board = ({ circlePlayerName, crossPlayerName }) => {
             key={tile.id}
             shape={tile.value}
             changeShape={changeShape}
+            checkScore={checkScore}
             index={index}
             isNowCircle={isNowCircle}
             setIsNowCircle={setIsNowCircle}
           />
         ))}
       </div>
+      {winner ? (<div>{`${winner}`}</div>) : null}
     </div>
   );
 };
