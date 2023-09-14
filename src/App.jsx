@@ -19,9 +19,9 @@ export const App = () => {
   };
 
   const handleStart = () => {
-    // if (!circlePlayerName || !crossPlayerName) {
-    //   return;
-    // }
+    if (!circlePlayerName || !crossPlayerName) {
+      return;
+    }
     setShow(!show);
   };
 

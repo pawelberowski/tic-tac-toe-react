@@ -73,10 +73,10 @@ export const Board = ({ circlePlayerName, crossPlayerName }) => {
         return tiles[number].value === 'cross';
       });
       if (circleWins) {
-        setWinner('Circle Wins!');
+        setWinner(`${circlePlayerName} Wins!`);
       }
       if (crossWins) {
-        setWinner('Cross Wins!');
+        setWinner(`${crossPlayerName} Wins!`);
       }
     });
     if (
