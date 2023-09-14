@@ -52,35 +52,45 @@ export const Board = ({ circlePlayerName, crossPlayerName }) => {
   };
 
   const winingCombos = [
-    [0,1,2],
-    [0,3,6],
-    [0,4,8],
-    [1,4,7],
-    [2,5,8],
-    [2,4,6],
-    [3,4,5],
-    [6,7,8]
+    [0, 1, 2],
+    [0, 3, 6],
+    [0, 4, 8],
+    [1, 4, 7],
+    [2, 5, 8],
+    [2, 4, 6],
+    [3, 4, 5],
+    [6, 7, 8],
   ];
 
-  const [winner, setWinner] = useState(null)
+  const [winner, setWinner] = useState(null);
 
   const checkScore = () => {
     winingCombos.forEach(function (array) {
       const circleWins = array.every(function (number) {
         return tiles[number].value === 'circle';
-      })
+      });
       const crossWins = array.every(function (number) {
         return tiles[number].value === 'cross';
-      })
+      });
       if (circleWins) {
         setWinner('Circle Wins!');
       }
       if (crossWins) {
         setWinner('Cross Wins!');
       }
-    })
+    });
+    if (
+      tiles.every(function (tile) {
+        return tile.value;
+      })
+    ) {
+      setWinner('Draw!');
+    }
+  };
 
-  }
+  const handleRestart = () => {
+    location.reload();
+  };
 
   return (
     <div className={styles.game}>
@@ -103,7 +113,14 @@ export const Board = ({ circlePlayerName, crossPlayerName }) => {
           />
         ))}
       </div>
-      {winner ? (<div>{`${winner}`}</div>) : null}
+      {winner ? (
+        <div>
+          <p>{`${winner}`}</p>
+          <button className={'restartButton'} onClick={handleRestart}>
+            Reset
+          </button>
+        </div>
+      ) : null}
     </div>
   );
 };

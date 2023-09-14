@@ -19,6 +19,7 @@ export const Tile = ({
       return;
     }
     changeShape('cross', index);
+    checkScore();
     setIsNowCircle(true);
   };
 
