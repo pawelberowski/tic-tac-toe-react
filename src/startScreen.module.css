@@ -1,9 +1,0 @@
-.startScreen {
-  display: flex;
-  flex-direction: column;
-}
-
-.startScreen * {
-  font-size: 30px;
-  margin-bottom: 30px;
-}

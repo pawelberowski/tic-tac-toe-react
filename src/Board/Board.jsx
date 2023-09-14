@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { Tile } from '../Tile/Tile.jsx';
 import styles from './board.module.css';
-
-export const Board = () => {
+import { TurnDisplay } from '../TurnDisplay.jsx';
+export const Board = ({ circlePlayerName, crossPlayerName }) => {
   const [isNowCircle, setIsNowCircle] = useState(true);
 
   const [tiles, setTiles] = useState([
@@ -51,17 +51,24 @@ export const Board = () => {
   };
 
   return (
-    <div className={styles.board}>
-      {tiles.map((tile, index) => (
-        <Tile
-          key={tile.id}
-          shape={tile.value}
-          changeShape={changeShape}
-          index={index}
-          isNowCircle={isNowCircle}
-          setIsNowCircle={setIsNowCircle}
-        />
-      ))}
+    <div className={styles.game}>
+      <TurnDisplay
+        circlePlayerName={circlePlayerName}
+        crossPlayerName={crossPlayerName}
+        isNowCircle={isNowCircle}
+      />
+      <div className={styles.board}>
+        {tiles.map((tile, index) => (
+          <Tile
+            key={tile.id}
+            shape={tile.value}
+            changeShape={changeShape}
+            index={index}
+            isNowCircle={isNowCircle}
+            setIsNowCircle={setIsNowCircle}
+          />
+        ))}
+      </div>
     </div>
   );
 };

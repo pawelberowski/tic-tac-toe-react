@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { PlayerNameInput } from './PlayerNameInput';
 import { StartButton } from './StartButton';
-import styles from './startScreen.module.css';
-import { GameScreen } from './GameScreen/GameScreen.jsx';
+import { Board } from './Board/Board.jsx';
+import styles from './styles.css';
 
 export const App = () => {
   const [circlePlayerName, setCirclePlayerName] = useState('');
@@ -38,7 +38,12 @@ export const App = () => {
         </div>
       ) : null}
 
-      {!show ? <GameScreen /> : null}
+      {!show ? (
+        <Board
+          circlePlayerName={circlePlayerName}
+          crossPlayerName={crossPlayerName}
+        />
+      ) : null}
     </div>
   );
 };
