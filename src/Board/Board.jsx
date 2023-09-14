@@ -93,31 +93,35 @@ export const Board = ({ circlePlayerName, crossPlayerName }) => {
   };
 
   return (
-    <div className={styles.game}>
-      <TurnDisplay
-        className={styles.turnDisplay}
-        circlePlayerName={circlePlayerName}
-        crossPlayerName={crossPlayerName}
-        isNowCircle={isNowCircle}
-      />
-      <div className={styles.board}>
-        {tiles.map((tile, index) => (
-          <Tile
-            key={tile.id}
-            shape={tile.value}
-            changeShape={changeShape}
-            checkScore={checkScore}
-            index={index}
+    <div>
+      {!winner ? (
+        <div className={styles.game}>
+          <TurnDisplay
+            className={styles.turnDisplay}
+            circlePlayerName={circlePlayerName}
+            crossPlayerName={crossPlayerName}
             isNowCircle={isNowCircle}
-            setIsNowCircle={setIsNowCircle}
           />
-        ))}
-      </div>
+          <div className={styles.board}>
+            {tiles.map((tile, index) => (
+              <Tile
+                key={tile.id}
+                shape={tile.value}
+                changeShape={changeShape}
+                checkScore={checkScore}
+                index={index}
+                isNowCircle={isNowCircle}
+                setIsNowCircle={setIsNowCircle}
+              />
+            ))}
+          </div>
+        </div>
+      ) : null}
       {winner ? (
-        <div>
+        <div className={styles.endScreen}>
           <p>{`${winner}`}</p>
-          <button className={'restartButton'} onClick={handleRestart}>
-            Reset
+          <button className={styles.restartButton} onClick={handleRestart}>
+            Restart
           </button>
         </div>
       ) : null}
