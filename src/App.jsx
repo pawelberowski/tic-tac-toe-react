@@ -31,10 +31,12 @@ export const App = () => {
         <div className={'startScreen'}>
           <PlayerNameInput
             shape="circle"
+            playerName={circlePlayerName}
             onChange={handleCirclePlayerInputChange}
           />
           <PlayerNameInput
             shape="cross"
+            playerName={crossPlayerName}
             onChange={handleCrossPlayerInputChange}
           />
           <StartButton className={'startButton'} onClick={handleStart} />
@@ -45,6 +47,7 @@ export const App = () => {
         <Board
           circlePlayerName={circlePlayerName}
           crossPlayerName={crossPlayerName}
+          setShow={setShow}
         />
       ) : null}
     </div>

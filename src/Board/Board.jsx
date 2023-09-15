@@ -3,7 +3,7 @@ import { Tile } from '../Tile/Tile.jsx';
 import styles from './board.module.css';
 import { TurnDisplay } from '../TurnDisplay.jsx';
 
-export const Board = ({ circlePlayerName, crossPlayerName }) => {
+export const Board = ({ circlePlayerName, crossPlayerName, setShow }) => {
   const [isNowCircle, setIsNowCircle] = useState(true);
 
   const [tiles, setTiles] = useState([
@@ -51,6 +51,14 @@ export const Board = ({ circlePlayerName, crossPlayerName }) => {
     setTiles(newTiles);
   };
 
+  const resetTiles = () => {
+    const newTiles = [...tiles];
+    newTiles.forEach((tile) => {
+      tile.value = null;
+    });
+    setTiles(newTiles);
+  };
+
   const winingCombos = [
     [0, 1, 2],
     [0, 3, 6],
@@ -89,7 +97,9 @@ export const Board = ({ circlePlayerName, crossPlayerName }) => {
   };
 
   const handleRestart = () => {
-    location.reload();
+    resetTiles();
+    setWinner(null);
+    setShow(true);
   };
 
   return (

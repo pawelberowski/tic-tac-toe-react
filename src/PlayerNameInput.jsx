@@ -1,3 +1,8 @@
-export const PlayerNameInput = ({ onChange, shape }) => {
-  return <input onChange={onChange} placeholder={`Set ${shape} player name`} />;
+export const PlayerNameInput = ({ onChange, shape, playerName }) => {
+  return (
+    <input
+      onChange={onChange}
+      placeholder={playerName ? playerName : `Set ${shape} player name`}
+    />
+  );
 };
