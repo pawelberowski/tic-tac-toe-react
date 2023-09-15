@@ -2,10 +2,10 @@ export const TurnDisplay = ({
   className,
   circlePlayerName,
   crossPlayerName,
-  isNowCircle,
+  currentShape,
 }) => {
   const currentPlayer = () => {
-    if (isNowCircle) {
+    if (currentShape === 'circle') {
       return circlePlayerName;
     }
     return crossPlayerName;

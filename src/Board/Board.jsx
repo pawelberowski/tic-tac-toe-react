@@ -4,7 +4,7 @@ import styles from './board.module.css';
 import { TurnDisplay } from '../TurnDisplay.jsx';
 
 export const Board = ({ circlePlayerName, crossPlayerName, setShow }) => {
-  const [isNowCircle, setIsNowCircle] = useState(true);
+  const [currentShape, setCurrentShape] = useState('circle');
 
   const [tiles, setTiles] = useState([
     {
@@ -110,7 +110,7 @@ export const Board = ({ circlePlayerName, crossPlayerName, setShow }) => {
             className={styles.turnDisplay}
             circlePlayerName={circlePlayerName}
             crossPlayerName={crossPlayerName}
-            isNowCircle={isNowCircle}
+            currentShape={currentShape}
           />
           <div className={styles.board}>
             {tiles.map((tile, index) => (
@@ -120,8 +120,8 @@ export const Board = ({ circlePlayerName, crossPlayerName, setShow }) => {
                 changeShape={changeShape}
                 checkScore={checkScore}
                 index={index}
-                isNowCircle={isNowCircle}
-                setIsNowCircle={setIsNowCircle}
+                currentShape={currentShape}
+                setCurrentShape={setCurrentShape}
               />
             ))}
           </div>

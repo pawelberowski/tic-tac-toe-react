@@ -5,22 +5,22 @@ export const Tile = ({
   changeShape,
   checkScore,
   index,
-  isNowCircle,
-  setIsNowCircle,
+  currentShape,
+  setCurrentShape,
 }) => {
   const handleClick = () => {
     if (shape) {
       return;
     }
-    if (isNowCircle) {
+    if (currentShape === 'circle') {
       changeShape('circle', index);
       checkScore();
-      setIsNowCircle(false);
+      setCurrentShape('cross');
       return;
     }
     changeShape('cross', index);
     checkScore();
-    setIsNowCircle(true);
+    setCurrentShape('circle');
   };
 
   return (
