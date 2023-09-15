@@ -37,7 +37,7 @@ export const App = () => {
             shape="cross"
             onChange={handleCrossPlayerInputChange}
           />
-          <StartButton onClick={handleStart} />
+          <StartButton className={'startButton'} onClick={handleStart} />
         </div>
       ) : null}
 
